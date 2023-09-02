@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ввод данных
+{% endblock %}
+
+{% block content %}
+<h1>Ввод имени пользователя</h1>
+<form action="/" method="post">
+<!--    получай флеш сообщения и отдельно получай категории, полученное сообщение сохраняй в посл-ть messages-->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+<!--    из посл-ти messages извлекаем категорию и сообщение-->
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+<!--                    выводим сообщение-->
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+<!--    здесь хотим от пользователя ввод имени и нажать отправку-->
+    <input type="text" name="name" placeholder="Имя">
+    <input type="submit" value="Отправить">
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Калькулятор
+{% endblock %}
+
+{% block content %}
+<h1>Калькулятор</h1>
+<form action="{{ url_for('calculator') }}" method='POST'>
+    <label for="num1">Первое число:</label>
+    <input type="number" name="num1">
+    <label for="num2">Второе число:</label>
+    <input type="number" name="num2">
+
+    <label for="operation">Операция</label>
+    <select id="operation" name="operation">
+        <option value="add">Сложение</option>
+        <option value="sub">Вычитание</option>
+        <option value="mul">Умножение</option>
+        <option value="div">Деление</option>
+    </select>
+    <input type="submit" value="Вычислить">
+
+</form>
+
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
+
+{% endblock %}

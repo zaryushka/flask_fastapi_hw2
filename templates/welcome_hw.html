@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Добро пожаловать!
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h1 class="col-12 col-md-6 display-2">Добро пожаловать, {{ name }}</h1>
+        <a href="/logout/">Выйти</a>
+    </div>
+{% endblock %}
